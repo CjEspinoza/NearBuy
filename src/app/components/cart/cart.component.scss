@@ -1,8 +1,57 @@
+$primary-color: #79BC77;
+$hover-primary:#6aa668;
+$primary-color-light: rgba(121, 188, 119, 0.3);
+$gray-color: #C4C4C4;
 $oswald: 'Oswald', sans-serif;
+@import "../../../styles.scss";
 
-.image-test {
-    height: 30px;
-    width: 30px;
+.right-panel{
+    background: white;
+    padding: 27% 0;
+    min-height: 24vmin;
+    max-height: 24vmax;
+    margin: 0 7% 20px;
+    // margin-right: 150px;
+    border: 1px solid $primary-color;
+    border-radius: 10px;
+}
+
+.orderConfirmation{
+    width: 90%;
+}
+
+.checkout-button{
+    width: 100%;
+    height: 5vh;
+    border: none;
+    border-radius: 10px;
+    background: $primary-color;
+    color: white;
+    font-size: 2.5vmin;
+}
+
+.orderInformation, .orderInformation-2{
+    font-size: 3vmin;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.order-total-amount{
+    font-size: 4vmin;
+    margin-left: 40px;
+    margin-top: 3px;
+}
+
+.order-title{
+    margin-left: 20px;
+}
+.order-title h1{
+    font-size: 5vmin;
+}
+
+.subtotal-amount, .shipping-amount, .total-order-amount{
+    margin-right: 30px;
 }
 .modal-header{
     font-family: $oswald;
@@ -10,22 +59,39 @@ $oswald: 'Oswald', sans-serif;
 }
 @import "../../../styles.scss";
 
+.btn{
+    padding: 5px;
+}
+.submit{
+    background-color: $primary-color;
+    color: white;
+}
+.submit:hover{
+    background-color: $hover-primary;
+}
 .cart{
     padding-top: 40px;
     font-family: $oswald;
-    background: url("../../../assets/images/cart-BG.jpg") fixed no-repeat;
+    background: url("../../../assets/images/cart-BG.jpg") center fixed no-repeat;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    // grid-column-gap: 1px;
+    @media screen and(max-width: 1025px) {
+        grid-template-columns: unset;
+    }
 }
 
 .image-test {
-    height: 19vh;
-    width: 40%;
-    margin-left: 50px;
-
+    height: 20vmin;
+    width: 17.1vmin;
+    // width: 40%;
+    // margin-left: 50px;
+    object-fit: cover;
 }
 
 .item-info{
-    padding: 20px;
-    width: 80%;
+    padding: 2vmin;
+    width: 100%;
     height: fixed;
 }
 
@@ -34,10 +100,9 @@ $oswald: 'Oswald', sans-serif;
 }
 
 .border{
-    margin-left: 40px;
-    margin-bottom: 20px;
-    height: 19vh;
-    width: 57%;
+    margin: 0 7% 20px;
+    // height: 19vh;
+    // width: 100%;
     display: grid;
     grid-column-start: 1;
     grid-column-end: 1;
@@ -46,18 +111,20 @@ $oswald: 'Oswald', sans-serif;
 }
 
 .product-name{
-    font-size: 30px;
+    font-size: 4vmin;
 }
 
 .top-items{
-    height: 5vh;
-    width: 41vw;
+    // height: 5vh;
+    width: 100%;
+}
+.bottom-items p{
+    font-size: 2vmin;
 }
 
-
 .delete-button{
-    height: 25px;
-    width: 25px;
+    height: 4vmin;
+    width: 4vmin;
 }
 
 .next-button{
@@ -73,20 +140,20 @@ $oswald: 'Oswald', sans-serif;
 }
 
 .price{
-    padding-left: 590px;
+    // padding-left: 590px;
     font-style: bold;
 }
 
-.bottom-items{
-    padding-top: 30px;
-    height: 20px;
-}
+// .bottom-items{
+//     padding-top: 30px;
+//     height: 20px;
+// }
 
 .add-button{
     margin-left: 10px;
-    margin-top: 9px;
-    height: 28px;
-    width: 28px;
+    // margin-top: 9px;
+    height: 4vmin;
+    width: 4vmin;
     border:none;
 }
 
@@ -95,9 +162,9 @@ $oswald: 'Oswald', sans-serif;
 }
 
 .minus-button{
-    margin-top: 9px;
-    height: 28px;
-    width: 28px;
+    // margin-top: 9px;
+    height: 4vmin;
+    width: 4vmin;
     border:none;
 }
 
@@ -106,27 +173,29 @@ $oswald: 'Oswald', sans-serif;
 }
 
 .total-quantity{
-    margin: 10px;
+    margin: 0 10px;
 }
 
-.quantity-text{
-    margin-top: 10px;
-}
+// .quantity-text{
+//     margin-top: 10px;
+// }
 
 .vline{
-    margin-left: 40px;
+    margin: 0 30px;
     height: 2px;
-    width: 57%;
+    width: 85%;
     background: $primary-color;
 }
 
 .total{
-    width: 57%;
-    margin-left: 820px;
-    font-size: 33px;
+    // width: 57%;
+    // margin-left: 789px;
+    margin: 5px 7% 5px;
+    font-size: 3vmin;
 }
 
 .amount{
+    margin-top: 2px;
     margin-bottom: 2px;
     border: 2px solid $primary-color;
     border-radius: 4px;
@@ -136,7 +205,7 @@ $oswald: 'Oswald', sans-serif;
 
 .cart-amount{
     margin-left: 10px;
-    margin-top: 5px;
+    // margin-top: 5px;
 }
 
 .clear-button{
@@ -149,8 +218,33 @@ $oswald: 'Oswald', sans-serif;
 }
 
 .delete-button-2{
-    height: 25px;
-    width: 25px;
+    height: 4vmin;
+    width: 4vmin;
     margin-bottom: 15px;
     margin-left: 6px;
+}
+
+.empty-cart{
+    text-align: center;
+    padding: 10% 0;
+    h1{
+        margin-bottom: 2vmin;
+        font-size: 4.5vmin;
+    }
+    h2{
+        margin-bottom: 4vmin;
+        font-size: 3.5vmin;
+    }
+}
+.cart-img{
+    width: 30vmin;
+}
+.store-button{
+    border:none;
+    color: white;
+    background-color: $primary-color;
+    text-align: center;
+    padding: 10px 60px;
+    border-radius: 50px;
+    font-size: 3vmin;
 }

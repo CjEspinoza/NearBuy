@@ -28,13 +28,16 @@ cat:'';
   //CHECKOUT
 
   getCheckout(){
-    return this.firestore.collection('checkout').snapshotChanges();
+    return this.firestore.collection('checkout', x => x.orderBy('time','asc')).snapshotChanges();
   }
   addCheckout(payload: CheckoutItems){
     return this.firestore.collection('checkout').add(payload);
   }
   deleteCheckout(itemsId:string){
     return this.firestore.doc('checkout/' + itemsId).delete();
+  }
+  updateCheckout(status:CheckoutItems,itemsId:string){
+    return this.firestore.doc('checkout/' + itemsId).update(status);
   }
 }
 
@@ -53,4 +56,7 @@ export interface CheckoutItems{
   image:string;
   address:string;
   amount:number;
+  orderID:string;
+  status:string;
+  time:any;
 }

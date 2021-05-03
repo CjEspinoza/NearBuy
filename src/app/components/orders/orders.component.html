@@ -1,0 +1,47 @@
+<div class="text-center m-5 d-flex flex-column" *ngIf="this.checkoutList.length != 0 ; else emptyList">
+    <h1>Order List</h1>
+<div class="container tablecon text-center d-flex justify-content-center flex-column">
+    <table class="w-100  mt-3" *ngFor="let checkout of checkoutList">
+        <tr>
+            <th><label>Name</label></th>
+        </tr>
+        <tr>
+            <td>{{checkout.name}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+        </tr>
+        <tr>
+            <td>{{checkout.address}}</td>
+        </tr>
+        <tr>
+            <th>Contact Number</th>
+        </tr>
+        <tr>
+            <td>{{checkout.number}}</td>
+        </tr>
+        <tr>
+            <th>Amount</th>
+        </tr>
+        <tr>
+            <td>₱{{checkout.amount}}.00</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>{{checkout.status}}</td>
+        </tr>
+        <tr>
+            <td><button class="btn otw m-1" (click)="otw(checkout.id)">On the Way</button><button class="btn delivered m-1" (click)="delivered(checkout.id)">Delivered</button></td>
+        </tr>
+    </table>
+</div>
+</div>
+<ng-template #emptyList>
+        <div class="empty-cart d-flex flex-column align-items-center m-5">
+            <img src="https://www.aclproduct.com/images/empty.png" class="mglass-img">
+            <h1>You don't have any orders yet. Huhuhu</h1>
+            <h3>Play Valorant while waiting for orders.</h3>
+        </div>
+    </ng-template>

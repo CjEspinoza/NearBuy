@@ -8,9 +8,9 @@
     <label class="textHeader d-flex justify-content-center">Home Cleaning Products</label>
   </div>
   </div>
-  <div class="container d-flex justify-content-center" *ngIf="firebaseService.cat == this.rice">
+  <div class="container d-flex justify-content-center" *ngIf="firebaseService.cat == this.ce">
     <div class="card header h3 w-100 d-flex justify-content-center">
-      <label class="textHeader d-flex justify-content-center">Rice</label>
+      <label class="textHeader d-flex justify-content-center">Cooking Essentials</label>
     </div>
     </div>
     <div class="container d-flex justify-content-center" *ngIf="firebaseService.cat == this.sfc">
@@ -30,7 +30,7 @@
           </div>
 <div class="container-fluid">
 
-    <div class="text-right mb-4" *ngIf="this.c == 5">
+    <div class="text-right mb-4" *ngIf="this.c >= 5">
       <button class="btn btn-primary p-2" (click)="openModal(popup, null)">
         <img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/14_Add-512.png" class="add-icon"> Add
       </button>
@@ -41,11 +41,12 @@
 
             <div class="card p-3 d-flex">
                 <div class="product-con d-flex justify-content-center"><img class="product-image" src="{{items.image}}"></div>
-                <div class="heading">Name: {{items.name}}</div>
-                <div class="sub-heading">Price: PHP {{items.price}}</div>
-                <button (click)="cart.addCart(items.name, items.price, items.id, items.image)">add to cart</button>
-                <div class="icon" *ngIf="this.c == 5">
-                  <img src="https://lh3.googleusercontent.com/proxy/2pNdGBLn9GnxHivgOdmOG3OIa2eL8BjGHq0blMMNcP5SM734bEXahyHcFarh1hG9o3Fjr4uFlqW7nEwvvh4xpCr7FizKXzmzgoUfKqY9uW-xJo1RolCMVvXzfHVqsDDL6BD-" class="delete-icon" (click)="deleteItems(items.id)">
+                <div class="heading">{{items.name}}</div>
+                <div class="sub-heading">₱{{items.price}}.00</div>
+                <button (click)="cart.addCart(items.name, items.price, items.id, items.image)" class="cart-button">Add to Cart</button>
+                <div class="icon" *ngIf="this.c >= 5">
+                  <img src="https://i.ibb.co/X3jLGVw/edit-alt-512.png" class="delete-icon" (click)="openModal(popup, items.id)">
+                  <img src="https://i.ibb.co/tpVzvnR/delete.png" class="delete-icon" (click)="deleteItems(items.id)">
                 </div>
               </div>
           </div>
@@ -81,7 +82,7 @@
           <label for="category">Category</label>
                  <select class="form-control" id="category" formControlName="category" [ngClass]="{'error-border': !form.get('category').valid && form.get('category').dirty}">
                   <option value="instantCannedGoods">Instant and Canned Goods</option>
-                  <option value="rice">Rice</option>
+                  <option value="cookingEssentials">Cooking Essentials</option>
                   <option value="selfCareProducts">Self-Care Products</option>
                   <option value="drinksAndSnacks">Soft Drinks and Snacks</option>
                   <option value="cleaningProducts">Home Cleaning Products</option>
